@@ -229,6 +229,8 @@ io.on('connection', function (socket) {
             let data = {}
             res.send(data)
         })
+        
+        // 게임 중 이었다면, 상대방에게 본인이 창을 닫았음을 알림
         if (req.body.state == 'gaming') {
             io.to(req.body.otherSocketId).emit('error', {
                 error: 'error'
@@ -237,6 +239,7 @@ io.on('connection', function (socket) {
     })
 })
 
+// 서버 실행
 server.listen(3000, function () {
     console.log('서버가 시작되었습니다.');
 });
