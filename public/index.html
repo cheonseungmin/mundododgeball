@@ -2,23 +2,27 @@
 <html>
 
 <head>
-	<title>mundoDodgeBall!!</title>
-	<meta charset="utf-8">
-	<style>
-		* {
-			margin: 0px;
-		   -ms-user-drag: none; 
-  			-moz-user-drag: -moz-none;
-  			-khtml-user-drag: none;
-  			-webkit-user-drag: none;
-  			user-drag: none;
-		}
-	</style>
+    <title>mundoDodgeBall!!</title>
+    <meta charset="utf-8">
+    <style>
+/*        마우스 드래그 이벤트 방지*/
+        * {
+            margin: 0px;
+            -ms-user-drag: none;
+            -moz-user-drag: -moz-none;
+            -khtml-user-drag: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+
+    </style>
 </head>
 
 <body>
-	<div id="mundoDodgeBall"></div>
-	<script src="../js/mundoDodgeBall.js"></script>
+<!--    react의 root 컴포넌트-->
+    <div id="mundoDodgeBall"></div>
+<!--    webpack에 의해 번들링 된 js 파일-->
+    <script src="../js/mundoDodgeBall.js"></script>
 </body>
 
 </html>
