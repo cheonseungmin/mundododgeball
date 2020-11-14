@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom'
 import Contents from './contents.jsx'
 import UserList from './userList.jsx'
 
+// 게임에 대한 직접적인 내용을 담고 있는 컴포넌트
 class Box extends React.Component {
 	constructor(props) {
 		super(props)
-		this.main = props.main
-		console.log(this.main)
+		this.main = props.main // main의 함수와 상태를 이용하기 위함
 	}
 	
 	render() {
+        // 게임 로고를 위한 스타일
 		const logo = {
 			position: 'absolute', 		 
 			display:'inlineBlock', 
 			left: '450px', 
 			top: '130px',
 		}
+        
+        // 로그인 창, 유저 목록, 상태 창을 위한 스타일
 		const box = {
 			position: 'absolute', 		 
 			display:'inlineBlock', 
@@ -30,6 +33,8 @@ class Box extends React.Component {
 			fontSize: '1.3rem',
 			opacity: 0.8,
 		}
+        
+        // main 컴포넌트의 상태에 따른 컴포넌트 라우팅
 		if(this.main.state.state == 'logout') {
 			return (
 				<div>
@@ -54,12 +59,16 @@ class Box extends React.Component {
 						<div>
 							{this.main.state.userId}님<br/>반갑습니다.
 						</div>
+<!--                        만약 초대가 온다면 state가 바뀌며 재렌더링이 되는데, 이 때 상대 아이디의 유무를 통해 초대 창을 렌더링 한다.-->
 						{(
 							()=>{
+                                // 상대의 아이디가 존재 => 초대 이벤트 때문
 								if(this.main.state.otherUserId) {
+                                    // 메세지 도착 알림 재생
 									let audioMessage = new Audio()
 									audioMessage.src = '../audio/message.mp3'
 									audioMessage.play()
+                                    // 초대 창 렌더링
 									return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}>
 												<button onClick={this.main.accept}>수락</button>
 												<button onClick={this.main.reject}>거절</button>&nbsp;
@@ -72,11 +81,13 @@ class Box extends React.Component {
 						<div style={{fontSize: '0.9rem', color: 'red'}}>
 							초대를 한 사용자의 색이 red입니다.
 						</div>
+<!--                        접속 중인 사용자들을 알기 위한 userList 컴포넌트 렌더링-->
 						<UserList state={this.main.state}/>
 					</div>
 				</div>
 			)
 		} else if(this.main.state.state == 'duplicate') {
+            // 아이디 로그인을 했지만 중복된 아이디를 입력한 경우
 			return (
 				<div>
 					<img src="../../img/logo.png" style={logo}></img>
@@ -95,6 +106,7 @@ class Box extends React.Component {
 				</div>
 			)
 		}	else if(this.main.state.state == 'gaming') {
+            // 초대를 승락하여 게임이 시작된 경우, Contents 컴포넌트를 렌더링한다.
 			this.main.audio.pause()
 				return (
 					<div>
@@ -102,10 +114,11 @@ class Box extends React.Component {
 					</div>
 				)
 		} else if(this.main.state.state == 'end') {
+            // 게임이 끝난 경우, 10초 뒤에 자동 로그아웃이 되게 한다.
 			(
 				()=>{
 					this.main.state.endTimeout = setTimeout(function() {
-						window.location.href = 'http://168.131.145.185:3000'
+						window.location.href = 'http://121.147.5.20:3000' // 서버의 주소
 					}, 10000)
 				}
 			)()
@@ -120,11 +133,11 @@ class Box extends React.Component {
 					<div style={{fontSize: '0.8rem'}}>
 						10초 후에 메인화면으로 돌아갑니다..
 					</div>
+<!--                    다시하기 버튼을 누른다면 replay 함수를 실행시킨다.-->
 					<button onClick={this.main.replay}>다시하기</button>
 				</div>
 			</div>
 		}
 	}
 }
-
 export default Box
