@@ -16,7 +16,7 @@ class Content extends React.Component {
 		this.myChampion = new Mundo(props, props.state.myColor, props.state.userId)
 		this.otherChampion = new Mundo(props, props.state.otherColor, props.state.otherUserId)
 		this.state = {
-            init: 0, // 캐릭터의 이동이 끝난 경우 .gif를 .png로 바꾸기 위한 변수
+            init: 0, // 캐릭터의 이동, 마우스 움직임을 인식하고 setState를 위한 변수
 			qFlag: false, // q스킬이 활성화 되어있는지 확인하는 플래그 (q를 한번 누르면 사정거리 표시, 한번 더 누르면 도끼가 날아갑니다.)
 			qCooltime: 0, // q스킬의 쿨타임을 위한 변수입니다. 0이면 사용가능하고 스킬을 사용하면 값이 증가하고 1씩 감소합니다.
 			userId: props.state.userId,
