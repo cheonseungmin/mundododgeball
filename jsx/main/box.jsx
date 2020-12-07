@@ -137,5 +137,6 @@ class Box extends React.Component {
 			</div>
 		}
 	}
+    
 }
 export default Box
