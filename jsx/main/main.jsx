@@ -5,6 +5,7 @@ import Box from './box.jsx'
 
 // SPA의 틀이 되는 컴포넌트
 class Main extends React.Component {
+    
     constructor(props) {
         super(props)
         this.socket = null // 로그인 후에 서버와 연결될 소켓

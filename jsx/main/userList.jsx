@@ -4,6 +4,7 @@ import socketIo from 'socket.io-client'
 
 // 현재 접속 중인 사용자 목록을 알려주는 컴포넌트
 class userList extends React.Component {
+    
     constructor(props) {
         super(props)
         this.state = {
