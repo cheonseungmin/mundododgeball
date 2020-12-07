@@ -362,34 +362,13 @@ class Mundo extends React.Component {
             top: this.state.y - 160,
         }
 
-        return <div >
-            <
-            div style = {
-                userIdStyle
-            } > {
-                this.state.userId
-            } < /div> <
-        div style = {
-            healthStyle
-        } > < /div> <
-        img src = {
-            this.state.img
-        }
-        style = {
-            mundoStyle
-        }
-        /> <
-        img src = "../img/mundo/mundoQRange.png"
-        style = {
-            qRangeStyle
-        }
-        /> <
-        img src = "../img/mundo/mundoAxe.gif"
-        style = {
-            axeStyle
-        }
-        /> < /
-        div >
+        return <div>
+                <div style = {userIdStyle}> {this.state.userId} </div> 
+                <div style = {healthStyle}> </div> 
+                <img src = {this.state.img} style = {mundoStyle}/> 
+                <img src = "../img/mundo/mundoQRange.png" style = {qRangeStyle}/> 
+                <img src = "../img/mundo/mundoAxe.gif" style = {axeStyle}/> 
+            </div>
     }
 }
 
