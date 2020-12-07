@@ -19,8 +19,8 @@ class Box extends React.Component {
 			top: '130px',
 		}
         
-        // 로그인 창, 유저 목록, 상태 창을 위한 스타일
-		const box = {
+        
+		const box = { // 로그인 창, 유저 목록, 상태 창을 위한 스타일
 			position: 'absolute', 		 
 			display:'inlineBlock', 
 			left: '450px', 
@@ -34,8 +34,8 @@ class Box extends React.Component {
 			opacity: 0.8,
 		}
         
-        // main 컴포넌트의 상태에 따른 컴포넌트 라우팅
-		if(this.main.state.state == 'logout') {
+        
+        if(this.main.state.state == 'logout') { // main 컴포넌트의 상태에 따른 컴포넌트 라우팅
 			return (
 				<div>
 					<img src="../../img/logo.png" style={logo}></img>
@@ -59,17 +59,15 @@ class Box extends React.Component {
 						<div>
 							{this.main.state.userId}님<br/>반갑습니다.
 						</div>
-<!--                        만약 초대가 온다면 state가 바뀌며 재렌더링이 되는데, 이 때 상대 아이디의 유무를 통해 초대 창을 렌더링 한다.-->
+                        <!--만약 초대가 온다면 state가 바뀌며 재렌더링이 되는데, 이 때 상대 아이디의 유무를 통해 초대 창을 렌더링 한다.-->
 						{(
 							()=>{
-                                // 상대의 아이디가 존재 => 초대 이벤트 때문
-								if(this.main.state.otherUserId) {
-                                    // 메세지 도착 알림 재생
-									let audioMessage = new Audio()
+								if(this.main.state.otherUserId) { // 상대의 아이디가 존재 => 초대 이벤트 때문
+									let audioMessage = new Audio() // 메세지 도착 알림 재생
 									audioMessage.src = '../audio/message.mp3'
 									audioMessage.play()
-                                    // 초대 창 렌더링
-									return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}>
+                        
+									return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}> <!--// 초대 창 렌더링 -->
 												<button onClick={this.main.accept}>수락</button>
 												<button onClick={this.main.reject}>거절</button>&nbsp;
 												{this.main.state.otherUserId}님께서 게임에 초대하셨습니다!
@@ -81,13 +79,13 @@ class Box extends React.Component {
 						<div style={{fontSize: '0.9rem', color: 'red'}}>
 							초대를 한 사용자의 색이 red입니다.
 						</div>
-<!--                        접속 중인 사용자들을 알기 위한 userList 컴포넌트 렌더링-->
-						<UserList state={this.main.state}/>
+                        
+						<UserList state={this.main.state}/> <!--접속 중인 사용자들을 알기 위한 userList 컴포넌트 렌더링-->
 					</div>
 				</div>
 			)
-		} else if(this.main.state.state == 'duplicate') {
-            // 아이디 로그인을 했지만 중복된 아이디를 입력한 경우
+		} else if(this.main.state.state == 'duplicate') { // 아이디 로그인을 했지만 중복된 아이디를 입력한 경우
+            
 			return (
 				<div>
 					<img src="../../img/logo.png" style={logo}></img>
@@ -105,16 +103,16 @@ class Box extends React.Component {
 					</div>
 				</div>
 			)
-		}	else if(this.main.state.state == 'gaming') {
-            // 초대를 승락하여 게임이 시작된 경우, Contents 컴포넌트를 렌더링한다.
+		}	else if(this.main.state.state == 'gaming') { // 초대를 승락하여 게임이 시작된 경우, Contents 컴포넌트를 렌더링한다.
+            
 			this.main.audio.pause()
 				return (
 					<div>
 						<Contents socket={this.main.socket} state={this.main.state}/>
 					</div>
 				)
-		} else if(this.main.state.state == 'end') {
-            // 게임이 끝난 경우, 10초 뒤에 자동 로그아웃이 되게 한다.
+		} else if(this.main.state.state == 'end') { // 게임이 끝난 경우, 10초 뒤에 자동 로그아웃이 되게 한다.
+            
 			(
 				()=>{
 					this.main.state.endTimeout = setTimeout(function() {
@@ -133,8 +131,8 @@ class Box extends React.Component {
 					<div style={{fontSize: '0.8rem'}}>
 						10초 후에 메인화면으로 돌아갑니다..
 					</div>
-<!--                    다시하기 버튼을 누른다면 replay 함수를 실행시킨다.-->
-					<button onClick={this.main.replay}>다시하기</button>
+                   
+					<button onClick={this.main.replay}>다시하기</button> <!-- 다시하기 버튼을 누른다면 replay 함수를 실행시킨다.-->
 				</div>
 			</div>
 		}
