@@ -1,0 +1,56 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+
+// 게임에 대한 직접적인 내용을 담고 있는 컴포넌트
+class DuplicateBox extends React.Component {
+	constructor(props) {
+		super(props)
+		this.main = props.main // main의 함수와 상태를 이용하기 위함
+	}
+	
+	render() {
+        // 게임 로고를 위한 스타일
+		const logo = {
+			position: 'absolute', 		 
+			display:'inlineBlock', 
+			left: '450px', 
+			top: '130px',
+		}
+        
+        
+		const box = { // 로그인 창, 유저 목록, 상태 창을 위한 스타일
+			position: 'absolute', 		 
+			display:'inlineBlock', 
+			left: '450px', 
+			top: '330px',
+			border: '1.5px solid gold',
+			backgroundColor: '#010a13',
+			color: 'white',
+			padding: '15px',
+			width: '400px',
+			fontSize: '1.3rem',
+			opacity: 0.8,
+		}
+        
+        return (
+            <div>
+                <img src="../../img/logo.png" style={logo}></img>
+                <img src="../../../img/main.png" style={{width: '100%', height: '100%'}}></img>
+                <div style={box}>
+                    <div style={{fontSize: '1.5rem'}}>
+                        로그인
+                    </div>
+                    <hr/><br/>
+                    <input type="text" id="userId" style={{width: '250px'}}></input>&nbsp;
+                    <button onClick={this.main.login}>중복 검색</button><br/>
+                    <div style={{color: 'red', fontSize: '0.7rem'}}>
+                        중복된 아이디 입니다. 
+                    </div>
+                </div>
+            </div>
+        )
+		
+	}   
+}
+export default DuplicateBox
