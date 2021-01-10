@@ -1,13 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Contents from './contents.jsx'
-import UserList from './userList.jsx'
+import React from 'react';
 
-import LogoutBox from './logoutBox.jsx'
-import LoginBox from './loginBox.jsx'
-import DuplicateBox from './duplicateBox.jsx'
-import GamingBox from './gamingBox.jsx'
-import EndBox from './endBox.jsx'
+import LogoutBox from './logoutBox.jsx';
+import LoginBox from './loginBox.jsx';
+import DuplicateBox from './duplicateBox.jsx';
+import GamingBox from './gamingBox.jsx';
+import EndBox from './endBox.jsx';
 
 // 게임에 대한 직접적인 내용을 담고 있는 컴포넌트
 class Box extends React.Component {

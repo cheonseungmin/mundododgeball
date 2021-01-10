@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 // 캐릭터 컴포넌트
 class Mundo extends React.Component {
@@ -7,7 +6,7 @@ class Mundo extends React.Component {
         super(props)
         this.state = {
             color: color,
-            img: "../img/mundo/mundoFront.png",
+            img: "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoFront.png",
             widthHalf: 130, // 캐릭터의 가로 길이 260의 절반
             heightHalf: 70, // 캐릭터의 세로 길이 140의 절반
             x: ((color == 'red') ? (800) : (1250)), // 캐릭터가 레드라면 시작 x좌표 800, 블루라면 시작 x 좌표 1250
@@ -33,7 +32,7 @@ class Mundo extends React.Component {
         this.audioCooltime = new Audio()
         this.audioQ = new Audio()
         this.audioCooltime.volume = 0.2
-        this.audioCooltime.src = '../audio/mundo.mp3'
+        this.audioCooltime.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/mundo.mp3'
         this.audioQ.volume = 0.2
     }
 
@@ -53,22 +52,22 @@ class Mundo extends React.Component {
         // 1. 이미지 변경하기
         if ((-45 <= this.state.degree) && (this.state.degree < 45)) { // 이동할 각도가 좌측일 때
             this.state.direction = "Left"
-            this.state.img = "../img/mundo/mundoLeft.gif" // 움직임을 표현하는 .gif 파일로 교체한다.
+            this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoLeft.gif" // 움직임을 표현하는 .gif 파일로 교체한다.
             this.state.widthHalf = 70 // 캐릭터의 가로 길이의 절반
             this.state.heightHalf = 115 // 캐릭터의 세로 길이의 절반
         } else if ((45 <= this.state.degree) && (this.state.degree < 135)) { // 이동할 각도가 뒤쪽일 때
             this.state.direction = "Back"
-            this.state.img = "../img/mundo/mundoBack.gif"
+            this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoBack.gif"
             this.state.widthHalf = 130
             this.state.heightHalf = 70
         } else if ((-135 <= this.state.degree) && (this.state.degree < -45)) { // 이동할 각도가 정면일 때
             this.state.direction = "Front"
-            this.state.img = "../img/mundo/mundoFront.gif"
+            this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoFront.gif"
             this.state.widthHalf = 130
             this.state.heightHalf = 70
         } else { // 이동할 각도가 우측일 때
             this.state.direction = "Right"
-            this.state.img = "../img/mundo/mundoRight.gif"
+            this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoRight.gif"
             this.state.widthHalf = 60
             this.state.heightHalf = 115
         }
@@ -139,7 +138,7 @@ class Mundo extends React.Component {
 
             // 위치에 도착한 경우 이미지를 .gif에서 .png로 교체한다.
             if (flagX && flagY) {
-                this.state.img = "../img/mundo/mundo" + this.state.direction + ".png"
+                this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundo" + this.state.direction + ".png"
                 clearInterval(this.state.moveIntervalIdx)
                 contents.setState({
                     init: 0
@@ -204,7 +203,7 @@ class Mundo extends React.Component {
     // 3. 도끼가 끝에 도달하거나 상대방을 맞춘다면 setInterval을 제거한다.
     q(contents, champion1, champion2, rad) {
         if (champion1.state.qCooltime != 0) return null // q의 쿨타임이 0이 아니라면 아무것도 실행하지 않는다.
-        this.audioQ.src = '../audio/attack.mp3' // 도끼가 날아가는 음악 실행
+        this.audioQ.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/attack.mp3' // 도끼가 날아가는 음악 실행
         this.audioQ.play()
         champion1.state.axeX = champion1.state.x // 도끼의 시작 좌표를 캐릭터의 좌표로 설정한다.
         champion1.state.axeY = champion1.state.y
@@ -250,7 +249,7 @@ class Mundo extends React.Component {
             if ((champion2.state.x - champion2.state.widthHalf <= champion1.state.axeX) && (champion1.state.axeX <= champion2.state.x + champion2.state.widthHalf)) {
                 if ((champion2.state.y - champion2.state.heightHalf <= champion1.state.axeY) && (champion1.state.axeY <= champion2.state.y + champion2.state.heightHalf)) {
                     // 도끼가 상대 챔피언의 좌표에 도달하게 된 경우
-                    this.audioQ.src = '../audio/damage.mp3' // 타격 음악을 실행한다.
+                    this.audioQ.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/damage.mp3' // 타격 음악을 실행한다.
                     this.audioQ.play()
                     flagX = true
                     flagY = true
@@ -288,7 +287,7 @@ class Mundo extends React.Component {
 
     // 이동중인 캐릭터를 멈추게 하는 하는 메소드
     stop(contents) {
-        this.state.img = "../img/mundo/mundo" + this.state.direction + ".png"
+        this.state.img = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundo" + this.state.direction + ".png"
         clearInterval(this.state.moveIntervalIdx)
         this.state.qFlag = false // 실행 중인 q를 취소하는 기능도 있다.
         this.state.qRangeVisibility = 'hidden'
@@ -366,8 +365,8 @@ class Mundo extends React.Component {
                 <div style = {userIdStyle}> {this.state.userId} </div> 
                 <div style = {healthStyle}> </div> 
                 <img src = {this.state.img} style = {mundoStyle}/> 
-                <img src = "../img/mundo/mundoQRange.png" style = {qRangeStyle}/> 
-                <img src = "../img/mundo/mundoAxe.gif" style = {axeStyle}/> 
+                <img src = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoQRange.png" style = {qRangeStyle}/> 
+                <img src = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/mundoAxe.gif" style = {axeStyle}/> 
             </div>
     }
 }

@@ -35,7 +35,7 @@ class Main extends React.Component {
         // 게임 배경음악 재생을 위한 부분
         this.audio = new Audio()
         this.audio.volume = 0.2
-        this.audio.src = '../audio/main.mp3'
+        this.audio.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/main.mp3'
         this.audio.loop = 'true'
 
         // 함수들을 컴포넌트와 바인딩하는 과정

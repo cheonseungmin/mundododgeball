@@ -36,8 +36,8 @@ class LogoutBox extends React.Component {
         
         return (
             <div>
-                <img src="../../img/logo.png" style={logo}></img>
-                <img src="../../img/main.png" style={{width: '100%', height: '100%'}}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/LOGO.png" style={logo}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/main.png" style={{width: '100%', height: '100%'}}></img>
                 <div style={box}>
                     <div style={{fontSize: '1.3rem'}}>
                         로그인

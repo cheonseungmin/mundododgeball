@@ -1,6 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Mundo from '../champion/mundo.jsx'
+import React from 'react';
+import Mundo from '../champion/mundo.jsx';
 
 // 캐릭터, 맵, 공격 등, 게임 내용을 담고 있는 컴포넌트
 class Content extends React.Component {
@@ -27,19 +26,19 @@ class Content extends React.Component {
         // 게임 배경음악입니다
         this.audio = new Audio()
         this.audio.volume = 0.2
-        this.audio.src = '../audio/game.mp3'
+        this.audio.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/game.mp3'
         this.audio.loop = 'true'
         this.audio.play()
 
         // 승리 했을 때의 음악입니다.
         this.audioWin = new Audio()
         this.audioWin.volume = 0.2
-        this.audioWin.src = '../audio/win.mp3'
+        this.audioWin.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/win.mp3'
 
         // 패배 했을 떄의 음악입니다.
         this.audioLose = new Audio()
         this.audioLose.volume = 0.2
-        this.audioLose.src = '../audio/lose.mp3'
+        this.audioLose.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/lose.mp3'
 
         // 함수들을 컴포넌트에 바인딩하는 과정입니다.
         this.handleContextMenu = this.handleContextMenu.bind(this)
@@ -195,10 +194,10 @@ class Content extends React.Component {
             }
             
             return <div onContextMenu={this.handleContextMenu} onMouseMove={this.handleMouseMove} onClick={this.handleClick}>
-                        <img src = "../../../img/map.png"/>
+                        <img src = "https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/map.png"/>
                         {this.myChampion.render()} { /* 캐릭터를 직접 렌더링합니다. */ }
                         {this.otherChampion.render()}
-                        <img src="../img/mundo/qCooltime.png" style={qCooltimeStyle}/>
+                        <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/mundo/qCooltime.png" style={qCooltimeStyle}/>
                         <div style={circleStyle}></div>
                         <div style={explainStyle}>Q를 눌러 공격하세요!</div>
 			     </div>

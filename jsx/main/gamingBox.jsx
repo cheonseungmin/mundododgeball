@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Contents from './contents.jsx'
 
 // 게임에 대한 직접적인 내용을 담고 있는 컴포넌트

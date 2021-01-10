@@ -35,8 +35,8 @@ class LoginBox extends React.Component {
         
         return (
             <div>
-                <img src="../../img/logo.png" style={logo}></img>
-                <img src="../../img/main.png" style={{width: '100%', height: '100%'}}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/LOGO.png" style={logo}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/main.png" style={{width: '100%', height: '100%'}}></img>
                 <div style={box}>
                     <div>
                         {this.main.state.userId}님<br/>반갑습니다.
@@ -46,7 +46,7 @@ class LoginBox extends React.Component {
                         ()=>{
                             if(this.main.state.otherUserId) { // 상대의 아이디가 존재 => 초대 이벤트 때문
                                 let audioMessage = new Audio() // 메세지 도착 알림 재생
-                                audioMessage.src = '../audio/message.mp3'
+                                audioMessage.src = 'https://dudghsx.s3.ap-northeast-2.amazonaws.com/audio/message.mp3'
                                 audioMessage.play()
 
                                 return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}> { /* 초대 창 렌더링  */ }

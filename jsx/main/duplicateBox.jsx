@@ -1,5 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
 
 
 // 게임에 대한 직접적인 내용을 담고 있는 컴포넌트
@@ -35,8 +34,8 @@ class DuplicateBox extends React.Component {
         
         return (
             <div>
-                <img src="../../img/logo.png" style={logo}></img>
-                <img src="../../../img/main.png" style={{width: '100%', height: '100%'}}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/LOGO.png" style={logo}></img>
+                <img src="https://dudghsx.s3.ap-northeast-2.amazonaws.com/img/main.png" style={{width: '100%', height: '100%'}}></img>
                 <div style={box}>
                     <div style={{fontSize: '1.5rem'}}>
                         로그인
