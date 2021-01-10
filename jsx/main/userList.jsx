@@ -54,7 +54,7 @@ class userList extends React.Component {
     render() {
 		return (
 			<div>
-				<input type="submit" value="사용자 목록 보기" onClick={this.userList.bind(this)}></input><br/> <!-- 사용자 목록 보기 버튼을 누르면 유저 목록을 서버로부터 받아와 출력한다.-->
+				<input type="submit" value="사용자 목록 보기" onClick={this.userList.bind(this)}></input><br/> { /* 사용자 목록 보기 버튼을 누르면 유저 목록을 서버로부터 받아와 출력한다. */}
 				{(
 					()=>{
 						if(this.state.users){
@@ -73,7 +73,7 @@ class userList extends React.Component {
 											}
 										</div>
 										<div style={{verticalAlign:'bottom', textAlign: 'center'}}>
-										<button onClick={this.prePage.bind(this)}>&lt;</button> <!--페이지 이동 버튼들-->
+										<button onClick={this.prePage.bind(this)}>&lt;</button> { /* 페이지 이동 버튼들 */ }
 										&nbsp; {this.state.page} / {this.state.list} &nbsp;
 										<button onClick={this.nextPage.bind(this)}>&gt;</button>
 							</div>

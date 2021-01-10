@@ -59,7 +59,7 @@ class Box extends React.Component {
 						<div>
 							{this.main.state.userId}님<br/>반갑습니다.
 						</div>
-                        <!--만약 초대가 온다면 state가 바뀌며 재렌더링이 되는데, 이 때 상대 아이디의 유무를 통해 초대 창을 렌더링 한다.-->
+                        { /* 만약 초대가 온다면 state가 바뀌며 재렌더링이 되는데, 이 때 상대 아이디의 유무를 통해 초대 창을 렌더링 한다. */ }
 						{(
 							()=>{
 								if(this.main.state.otherUserId) { // 상대의 아이디가 존재 => 초대 이벤트 때문
@@ -67,7 +67,7 @@ class Box extends React.Component {
 									audioMessage.src = '../audio/message.mp3'
 									audioMessage.play()
                         
-									return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}> <!--// 초대 창 렌더링 -->
+									return <div style={{fontSize: '0.8rem', color: 'skyblue', padding: '5px 5px 5px 0px'}}> { /* 초대 창 렌더링  */ }
 												<button onClick={this.main.accept}>수락</button>
 												<button onClick={this.main.reject}>거절</button>&nbsp;
 												{this.main.state.otherUserId}님께서 게임에 초대하셨습니다!
@@ -80,7 +80,7 @@ class Box extends React.Component {
 							초대를 한 사용자의 색이 red입니다.
 						</div>
                         
-						<UserList state={this.main.state}/> <!--접속 중인 사용자들을 알기 위한 userList 컴포넌트 렌더링-->
+						<UserList state={this.main.state}/> { /* 접속 중인 사용자들을 알기 위한 userList 컴포넌트 렌더링 */ }
 					</div>
 				</div>
 			)
@@ -117,7 +117,7 @@ class Box extends React.Component {
 				()=>{
 					this.main.state.endTimeout = setTimeout(function() {
 						window.location.href = 'http://121.147.5.20:3000' // 서버의 주소
-					}, 10000)
+					}, 2000)
 				}
 			)()
 			return <div>
@@ -129,10 +129,8 @@ class Box extends React.Component {
 					</div>
 					<hr/>
 					<div style={{fontSize: '0.8rem'}}>
-						10초 후에 메인화면으로 돌아갑니다..
+						2초 후에 메인화면으로 돌아갑니다..
 					</div>
-                   
-					<button onClick={this.main.replay}>다시하기</button> <!-- 다시하기 버튼을 누른다면 replay 함수를 실행시킨다.-->
 				</div>
 			</div>
 		}

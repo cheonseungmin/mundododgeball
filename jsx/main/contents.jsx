@@ -138,7 +138,6 @@ class Content extends React.Component {
             if (this.state.winner == this.state.userId) {
                 this.audioWin.play()
             } else {
-                console.log(this.state.winner)
                 this.audioLose.play()
             }
             // 게임이 끝났기 때문에 모든 set을 중지합니다.
@@ -155,10 +154,9 @@ class Content extends React.Component {
                 socketId: this.props.state.socketId,
                 otherSocketId: this.props.state.otherSocketId
             })
-            return <div >
-                loading...
-                <
-                /div>
+            return <div>
+                    loading...
+                </div>
         } else {
             // 게임 렌더링입니다.
 
@@ -194,14 +192,16 @@ class Content extends React.Component {
                 fontSize: '1.5rem',
                 border: '2px',
                 color: 'white'
-   return <div onContextMenu={this.handleContextMenu} onMouseMove={this.handleMouseMove} onClick={this.handleClick}>
-				<img src = "../../../img/map.png"/>
-				{this.myChampion.render()} <!--캐릭터를 직접 렌더링합니다.-->
-				{this.otherChampion.render()}
-				<img src="../img/mundo/qCooltime.png" style={qCooltimeStyle}/>
-				<div style={circleStyle}></div>
-				<div style={explainStyle}>Q를 눌러 공격하세요!</div>
-			</div>         }
+            }
+            
+            return <div onContextMenu={this.handleContextMenu} onMouseMove={this.handleMouseMove} onClick={this.handleClick}>
+                        <img src = "../../../img/map.png"/>
+                        {this.myChampion.render()} { /* 캐릭터를 직접 렌더링합니다. */ }
+                        {this.otherChampion.render()}
+                        <img src="../img/mundo/qCooltime.png" style={qCooltimeStyle}/>
+                        <div style={circleStyle}></div>
+                        <div style={explainStyle}>Q를 눌러 공격하세요!</div>
+			     </div>
 
         }
     }
