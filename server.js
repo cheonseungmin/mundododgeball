@@ -239,6 +239,6 @@ io.on('connection', function (socket) {
 });
 
 // 서버 실행
-server.listen(3000, function () {
+server.listen(80, function () {
     console.log('서버가 시작되었습니다.');
 });
