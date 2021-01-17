@@ -63,7 +63,7 @@ class Main extends React.Component {
             // state에 따라서 라우팅함
             if (this.state.state == 'login') {
                 // login의 경우, 서버로부터 socket을 할당받기 위한 요청을 한다.
-                this.socket = socketIo.connect('http://www.dudghsx.com/') //서버의 주소, 제 경우에는 집에서 포트 포워딩을 통해 서버를 열었습니다.
+                this.socket = socketIo.connect('http://www.dudghsx.com:3000') //서버의 주소, 제 경우에는 집에서 포트 포워딩을 통해 서버를 열었습니다.
 
 
                 // 밑으로는 연결된 소켓이 요청의 라우팅 과정입니다.
@@ -120,7 +120,7 @@ class Main extends React.Component {
                 // 상대방이 브라우저를 강제 종료했음을 알립니다.
                 this.socket.on('error', function (data) {
                     alert('상대방과의 연결이 끊어졌습니다!')
-                    window.location.href = 'http://www.dudghsx.com/'
+                    window.location.href = 'http://www.dudghsx.com:3000'
                     // 서버로 재접속을 시도합니다.
                 }.bind(this))
 
