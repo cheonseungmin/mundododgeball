@@ -36,7 +36,7 @@ class EndBox extends React.Component {
         (
             ()=>{
                 this.main.state.endTimeout = setTimeout(function() {
-                    window.location.href = 'http://dudghsx.com' // 서버의 주소
+                    window.location.href = 'http://www.dudghsx.com' // 서버의 주소
                 }, 3000)
             }
         )()
