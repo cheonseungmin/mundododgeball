@@ -14,10 +14,10 @@ const createConn = function () {
     // connection 변수에 데이터 베이스 연결을 위한 정보 재할당
     // 한번 연결했다가 실패한 connection은 재연결이 안되기 때문
     connection = mysql.createConnection({
-        host: 'mundododgeball.cxhppsaqjlis.ap-northeast-2.rds.amazonaws.com',
-        user: 'user',
-        password: 'dpdltm137',
-        database: 'mundododgeball'
+        host: 'databaseEndpoint',
+        user: 'userId',
+        password: 'password',
+        database: 'databaseName'
     });
 
     // 커넥션 실행
